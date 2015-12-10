@@ -51,6 +51,7 @@
       <root url="file://$PROJECT_DIR$/../../../gopkg.in/pg.v3/.git" />
       <root url="file://$PROJECT_DIR$/../../docker/docker/docs/reference/api/_static" />
       <root url="file://$PROJECT_DIR$/../../docker/docker/.idea" />
+      <root url="file://$PROJECT_DIR$/Godeps/_workspace" />
       <root url="file://$PROJECT_DIR$/../datahub_repository/.git" />
       <root url="file://$PROJECT_DIR$/../../../git.mrocker.com/cuixg/connector/.git" />
       <root url="file://$PROJECT_DIR$/../../../git.mrocker.com/cuixg/apns/.git" />

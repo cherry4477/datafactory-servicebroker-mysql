@@ -38,8 +38,10 @@
       <root url="file://$PROJECT_DIR$/../tantan/Godeps/_workspace" />
       <root url="file://$PROJECT_DIR$/../datahub_repository/Godeps/_workspace" />
       <root url="file://$PROJECT_DIR$/../../julienschmidt/httprouter/.git" />
+      <root url="file://$PROJECT_DIR$/../.idea" />
       <root url="file://$PROJECT_DIR$/../../../gopkg.in/mgo.v2/.git" />
       <root url="file://$PROJECT_DIR$/../../../gopkg.in/bsm/ratelimit.v1/.git" />
+      <root url="file://$PROJECT_DIR$/../../openshift/.idea" />
       <root url="file://$PROJECT_DIR$/../../../git.mrocker.com/cuixg/gateway/.idea" />
       <root url="file://$PROJECT_DIR$/../../cloudfoundry-samples/go_service_broker/.idea" />
       <root url="file://$PROJECT_DIR$/.git" />

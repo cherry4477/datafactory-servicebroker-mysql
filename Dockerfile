@@ -10,7 +10,4 @@ RUN go get github.com/tools/godep \
     
 EXPOSE 8100
 
-ENV SERVICE_NAME=broker_mysql
-
-ENTRYPOINT ["/go/bin/broker_mysql"]
 CMD ["sh", "-c", "./broker_mysql"]

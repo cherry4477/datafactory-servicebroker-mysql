@@ -76,7 +76,6 @@
       <root url="file://$PROJECT_DIR$/../../maximilien/softlayer-go/.git" />
       <root url="file://$PROJECT_DIR$/../../aws/aws-sdk-go/vendor/github.com/go-ini/ini/testdata" />
       <root url="file://$PROJECT_DIR$/../../go-martini/martini/.idea" />
-      <root url="file://$PROJECT_DIR$/Godeps/_workspace" />
     </excluded>
   </library>
 </component>

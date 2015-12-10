@@ -3,7 +3,7 @@ package config
 import (
 	"encoding/json"
 
-	"github.com/cloudfoundry-samples/go_service_broker/utils"
+	"github.com/asiainfoLDP/broker_mysql/utils"
 )
 
 type Config struct {

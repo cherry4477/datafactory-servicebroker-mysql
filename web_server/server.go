@@ -8,9 +8,9 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/cloudfoundry-samples/go_service_broker/config"
-	"github.com/cloudfoundry-samples/go_service_broker/model"
-	"github.com/cloudfoundry-samples/go_service_broker/utils"
+	"github.com/asiainfoLDP/broker_mysql/config"
+	"github.com/asiainfoLDP/broker_mysql/model"
+	"github.com/asiainfoLDP/broker_mysql/utils"
 
 	"log"
 )
@@ -69,7 +69,6 @@ func (s *Server) Start() {
 	}
 
 	fmt.Println("Server started, listening on port " + conf.Port + "...")
-	fmt.Println("CTL-C to break out of broker")
 	log.Println(http.ListenAndServe(":"+conf.Port, nil))
 }
 

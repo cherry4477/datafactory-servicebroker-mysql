@@ -3,7 +3,7 @@ package client
 import (
 	"database/sql"
 	"fmt"
-	"github.com/cloudfoundry-samples/go_service_broker/model"
+	"github.com/asiainfoLDP/broker_mysql/model"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"os"

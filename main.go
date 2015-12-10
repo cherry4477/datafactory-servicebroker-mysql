@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"os"
 
-	conf "github.com/cloudfoundry-samples/go_service_broker/config"
-	utils "github.com/cloudfoundry-samples/go_service_broker/utils"
-	webs "github.com/cloudfoundry-samples/go_service_broker/web_server"
+	conf "github.com/asiainfoLDP/broker_mysql/config"
+	utils "github.com/asiainfoLDP/broker_mysql/utils"
+	webs "github.com/asiainfoLDP/broker_mysql/web_server"
 )
 
 type Options struct {

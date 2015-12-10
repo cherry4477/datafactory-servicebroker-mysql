@@ -4,10 +4,9 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-
-	client "github.com/cloudfoundry-samples/go_service_broker/client"
-	model "github.com/cloudfoundry-samples/go_service_broker/model"
-	utils "github.com/cloudfoundry-samples/go_service_broker/utils"
+	client"github.com/asiainfoLDP/broker_mysql/client"
+	model "github.com/asiainfoLDP/broker_mysql/model"
+	utils "github.com/asiainfoLDP/broker_mysql/utils"
 	"log"
 )
 
@@ -61,11 +60,24 @@ func (c *Controller) Catalog(w http.ResponseWriter, r *http.Request) {
 }
 
 func (c *Controller) CreateServiceInstance(w http.ResponseWriter, r *http.Request) {
+	user, password, err := utils.ParseBasicAuth(r)
+	if err != nil {
+		w.WriteHeader(http.StatusUnauthorized)
+		w.Write([]byte("Unauthorized"))
+		return
+	}
+
+	if user == "" || password == "" {
+		w.WriteHeader(http.StatusUnauthorized)
+		w.Write([]byte("Unauthorized"))
+		return
+	}
+
 	fmt.Println("Create Service Instance...")
 
 	var instance model.ServiceInstance
 
-	err := utils.ProvisionDataFromRequest(r, &instance)
+	err = utils.ProvisionDataFromRequest(r, &instance)
 	if err != nil {
 		log.Printf(err.Error())
 		w.WriteHeader(http.StatusInternalServerError)
@@ -75,11 +87,6 @@ func (c *Controller) CreateServiceInstance(w http.ResponseWriter, r *http.Reques
 	instanceId, err := c.cloudClient.CreateInstance(instance.Parameters)
 	if err != nil {
 		w.WriteHeader(http.StatusConflict)
-		return
-	}
-	user, password, _ := utils.ParseBasicAuth(r)
-	if user == "" || password == "" {
-		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
 

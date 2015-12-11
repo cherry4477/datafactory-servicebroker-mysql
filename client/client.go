@@ -117,14 +117,14 @@ func GetEnvs() {
 		fmt.Println("ENV[MYSQL_DATABASE] is null")
 		os.Exit(1)
 	}
-	DB_USER = os.Getenv("MYSQL_USER")
+	DB_USER = os.Getenv("MYSQL_ENV_MYSQL_ROOT_PASSWORD")
 	if DB_USER == "" {
 		fmt.Println("ENV[MYSQL_USER] is null")
 		os.Exit(1)
 	}
 	DB_PASSWD = os.Getenv("MYSQL_PASSWD")
 	if DB_PASSWD == "" {
-		fmt.Println("ENV[MYSQL_USER] is null")
+		fmt.Println("ENV[MYSQL_PASSWD] is null")
 		os.Exit(1)
 	}
 }

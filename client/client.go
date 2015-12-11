@@ -68,7 +68,7 @@ func (client *SoftLayerClient) CreateInstance(parameters interface{}) (string, e
 		if db_name, ok := param[DATABASE_NAME].(string); ok {
 			dataBaseName = db_name
 		} else {
-			dataBaseName = fmt.Sprintf("%s", time.Now().Nanosecond())
+			dataBaseName = fmt.Sprintf("%d", time.Now().Nanosecond())
 		}
 	}
 	_, err := DB.Exec(fmt.Sprintf("CREATE DATABASE %s;", dataBaseName))

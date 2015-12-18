@@ -8,6 +8,6 @@ RUN go get github.com/tools/godep \
     && $GOPATH/bin/godep restore \
     && go build
     
-EXPOSE 8100
+EXPOSE 8001
 
 CMD ["sh", "-c", "./broker_mysql"]

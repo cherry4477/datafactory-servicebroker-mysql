@@ -4,10 +4,10 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/asiainfoLDP/broker_mysql/model"
+	"github.com/asiainfoLDP/broker_mysql/utils"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"os"
-	"time"
 )
 
 const DATABASE_NAME = "db_name"
@@ -32,6 +32,9 @@ func init() {
 	DB, err = sql.Open("mysql", URL)
 	if err != nil {
 		log.Fatalln("open failed ", err)
+	}
+	if err := DB.Ping(); err != nil {
+		log.Fatalln("ping db fail", err)
 	}
 }
 
@@ -68,7 +71,7 @@ func (client *SoftLayerClient) CreateInstance(parameters interface{}) (string, e
 		if db_name, ok := param[DATABASE_NAME].(string); ok {
 			dataBaseName = db_name
 		} else {
-			dataBaseName = fmt.Sprintf("%d", time.Now().Nanosecond())
+			dataBaseName = fmt.Sprintf("DB_%s", utils.GetUid())
 		}
 	}
 	_, err := DB.Exec(fmt.Sprintf("CREATE DATABASE %s;", dataBaseName))
@@ -117,12 +120,12 @@ func GetEnvs() {
 		fmt.Println("ENV[MYSQL_DATABASE] is null")
 		os.Exit(1)
 	}
-	DB_USER = os.Getenv("MYSQL_ENV_MYSQL_ROOT_PASSWORD")
+	DB_USER = os.Getenv("MYSQL_USER")
 	if DB_USER == "" {
 		fmt.Println("ENV[MYSQL_USER] is null")
 		os.Exit(1)
 	}
-	DB_PASSWD = os.Getenv("MYSQL_PASSWD")
+	DB_PASSWD = os.Getenv("MYSQL_ENV_MYSQL_ROOT_PASSWORD")
 	if DB_PASSWD == "" {
 		fmt.Println("ENV[MYSQL_PASSWD] is null")
 		os.Exit(1)

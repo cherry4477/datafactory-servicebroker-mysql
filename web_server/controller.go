@@ -87,6 +87,7 @@ func (c *Controller) CreateServiceInstance(w http.ResponseWriter, r *http.Reques
 	instanceId, err := c.cloudClient.CreateInstance(instance.Parameters)
 	if err != nil {
 		w.WriteHeader(http.StatusConflict)
+		w.Write([]byte(err.Error()))
 		return
 	}
 
@@ -101,10 +102,12 @@ func (c *Controller) CreateServiceInstance(w http.ResponseWriter, r *http.Reques
 
 	c.instanceMap[instance.Id] = &instance
 
+	gen_passwd := utils.GetGuid()
+	gen_user := utils.GetUid()
 	crd := model.Credential{
-		Uri:      fmt.Sprintf("mysql://%s:%s@%s:3306/%s", user, password, "mysqlhost", instanceId),
-		Username: user,
-		Password: password,
+		Uri:      fmt.Sprintf("mysql://%s:%s@%s:3306/%s", gen_user, gen_passwd, "mysqlhost", instanceId),
+		Username: gen_user,
+		Password: gen_passwd,
 		Host:     "mysqlhost",
 		Port:     3306,
 		Database: instanceId,

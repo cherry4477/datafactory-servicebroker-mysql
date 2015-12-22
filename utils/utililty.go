@@ -12,9 +12,17 @@ import (
 	"log"
 	"regexp"
 	"strings"
-)
 
-var REG_BASIC_AUTH = regexp.MustCompile(`^Basic (.+)$`)
+	"crypto/md5"
+	"crypto/rand"
+	"encoding/hex"
+	"io"
+)
+const encodeStd = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ac"
+var (
+	REG_BASIC_AUTH = regexp.MustCompile(`^Basic (.+)$`)
+	URLEncoding = base64.NewEncoding(encodeStd)
+)
 
 func ReadAndUnmarshal(object interface{}, dir string, fileName string) error {
 	path := dir + string(os.PathSeparator) + fileName
@@ -156,4 +164,32 @@ func ParseBasicAuth(r *http.Request) (string, string, error) {
 	}
 
 	return ary[0], ary[1], nil
+}
+
+func GetMd5String(s string) string {
+	h := md5.New()
+	h.Write([]byte(s))
+	return hex.EncodeToString(h.Sum(nil))
+}
+
+func GetGuid() string {
+	b := make([]byte, 48)
+
+	if _, err := io.ReadFull(rand.Reader, b); err != nil {
+		return ""
+	}
+	return GetMd5String(URLEncoding.EncodeToString(b))
+}
+
+func base64Encode(src []byte) string {
+	return URLEncoding.EncodeToString(src)
+}
+
+func GetUid() string {
+	b := make([]byte, 48)
+
+	if _, err := io.ReadFull(rand.Reader, b); err != nil {
+		return ""
+	}
+	return base64Encode(b)[:12]
 }

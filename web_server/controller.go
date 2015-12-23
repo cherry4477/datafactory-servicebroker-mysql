@@ -60,31 +60,31 @@ func (c *Controller) Catalog(w http.ResponseWriter, r *http.Request) {
 }
 
 func (c *Controller) CreateServiceInstance(w http.ResponseWriter, r *http.Request) {
-	user, password, err := utils.ParseBasicAuth(r)
-	if err != nil {
-		w.WriteHeader(http.StatusUnauthorized)
-		w.Write([]byte("Unauthorized"))
-		return
-	}
+//	user, password, err := utils.ParseBasicAuth(r)
+//	if err != nil {
+//		w.WriteHeader(http.StatusUnauthorized)
+//		w.Write([]byte("Unauthorized"))
+//		return
+//	}
 
-	if user == "" || password == "" {
-		w.WriteHeader(http.StatusUnauthorized)
-		w.Write([]byte("Unauthorized"))
-		return
-	}
+//	if user == "" || password == "" {
+//		w.WriteHeader(http.StatusUnauthorized)
+//		w.Write([]byte("Unauthorized"))
+//		return
+//	}
 
 	fmt.Println("Create Service Instance...")
 
 	var instance model.ServiceInstance
 
-	err = utils.ProvisionDataFromRequest(r, &instance)
+	err := utils.ProvisionDataFromRequest(r, &instance)
 	if err != nil {
 		log.Printf(err.Error())
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	instanceId, err := c.cloudClient.CreateInstance(instance.Parameters)
+	instanceId, err := c.cloudClient.CreateInstance(nil)
 	if err != nil {
 		w.WriteHeader(http.StatusConflict)
 		w.Write([]byte(err.Error()))
@@ -137,7 +137,7 @@ func (c *Controller) CreateServiceInstance(w http.ResponseWriter, r *http.Reques
 		LastOperation: instance.LastOperation,
 	}
 
-	utils.WriteResponse(w, http.StatusAccepted, response)
+	utils.WriteResponse(w, http.StatusOK, response)
 }
 
 func (c *Controller) GetServiceInstance(w http.ResponseWriter, r *http.Request) {

@@ -66,14 +66,8 @@ type SoftLayerClient struct {
 }
 
 func (client *SoftLayerClient) CreateInstance(parameters interface{}) (string, error) {
-	dataBaseName := ""
-	if param, ok := parameters.(map[string]interface{}); ok {
-		if db_name, ok := param[DATABASE_NAME].(string); ok {
-			dataBaseName = db_name
-		} else {
-			dataBaseName = fmt.Sprintf("DB_%s", utils.GetUid())
-		}
-	}
+
+	dataBaseName := fmt.Sprintf("DB_%s", utils.GetUid())
 	_, err := DB.Exec(fmt.Sprintf("CREATE DATABASE %s;", dataBaseName))
 	if err != nil {
 		log.Printf("CREATE DATABASE %s err: %s.", dataBaseName, err)

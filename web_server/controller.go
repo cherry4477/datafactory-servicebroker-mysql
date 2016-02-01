@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	client"github.com/asiainfoLDP/broker_mysql/client"
-	model "github.com/asiainfoLDP/broker_mysql/model"
-	utils "github.com/asiainfoLDP/broker_mysql/utils"
+	client"github.com/asiainfoLDP/datafactory-servicebroker-mysql/client"
+	model "github.com/asiainfoLDP/datafactory-servicebroker-mysql/model"
+	utils "github.com/asiainfoLDP/datafactory-servicebroker-mysql/utils"
 	"log"
 )
 

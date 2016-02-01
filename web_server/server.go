@@ -8,9 +8,9 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/asiainfoLDP/broker_mysql/config"
-	"github.com/asiainfoLDP/broker_mysql/model"
-	"github.com/asiainfoLDP/broker_mysql/utils"
+	"github.com/asiainfoLDP/datafactory-servicebroker-mysql/config"
+	"github.com/asiainfoLDP/datafactory-servicebroker-mysql/model"
+	"github.com/asiainfoLDP/datafactory-servicebroker-mysql/utils"
 
 	"log"
 )

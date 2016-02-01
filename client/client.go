@@ -3,8 +3,8 @@ package client
 import (
 	"database/sql"
 	"fmt"
-	"github.com/asiainfoLDP/broker_mysql/model"
-	"github.com/asiainfoLDP/broker_mysql/utils"
+	"github.com/asiainfoLDP/datafactory-servicebroker-mysql/model"
+	"github.com/asiainfoLDP/datafactory-servicebroker-mysql/utils"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"os"

@@ -3,7 +3,7 @@ package config
 import (
 	"encoding/json"
 
-	"github.com/asiainfoLDP/broker_mysql/utils"
+	"github.com/asiainfoLDP/datafactory-servicebroker-mysql/utils"
 )
 
 type Config struct {

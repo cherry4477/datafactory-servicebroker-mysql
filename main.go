@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"os"
 
-	conf "github.com/asiainfoLDP/broker_mysql/config"
-	utils "github.com/asiainfoLDP/broker_mysql/utils"
-	webs "github.com/asiainfoLDP/broker_mysql/web_server"
+	conf "github.com/asiainfoLDP/datafactory-servicebroker-mysql/config"
+	utils "github.com/asiainfoLDP/datafactory-servicebroker-mysql/utils"
+	webs "github.com/asiainfoLDP/datafactory-servicebroker-mysql/web_server"
 )
 
 type Options struct {

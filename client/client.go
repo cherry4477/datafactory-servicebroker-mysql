@@ -99,12 +99,12 @@ func (client *SoftLayerClient) DeleteInstance(instance *model.ServiceInstance) e
 	return nil
 }
 func GetEnvs() {
-	DB_ADDR = os.Getenv("MYSQL_ADDR")
+	DB_ADDR = os.Getenv("MYSQL_ENV_MYSQL_ROOT_ADDR")
 	if DB_ADDR == "" {
 		fmt.Println("ENV[MYSQL_ADDR] is null")
 		os.Exit(1)
 	}
-	DB_PORT = os.Getenv("MYSQL_PORT")
+	DB_PORT = os.Getenv("MYSQL_ENV_MYSQL_ROOT_PORT")
 	if DB_PORT == "" {
 		fmt.Println("ENV[MYSQL_PORT] is null")
 		os.Exit(1)

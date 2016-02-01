@@ -99,27 +99,32 @@ func (client *SoftLayerClient) DeleteInstance(instance *model.ServiceInstance) e
 	return nil
 }
 func GetEnvs() {
-	DB_ADDR = os.Getenv("MYSQL_ENV_MYSQL_ROOT_ADDR")
+	DB_ADDR = os.Getenv("MYSQL_ADDR")
+	fmt.Printf("ENV[MYSQL_ADDR] is %s", DB_ADDR)
 	if DB_ADDR == "" {
 		fmt.Println("ENV[MYSQL_ADDR] is null")
 		os.Exit(1)
 	}
-	DB_PORT = os.Getenv("MYSQL_ENV_MYSQL_ROOT_PORT")
+	DB_PORT = os.Getenv("MYSQL_PORT")
+	fmt.Printf("ENV[DB_PORT] is %s", DB_PORT)
 	if DB_PORT == "" {
 		fmt.Println("ENV[MYSQL_PORT] is null")
 		os.Exit(1)
 	}
 	DB_DATABASE = os.Getenv("MYSQL_DATABASE")
+	fmt.Printf("ENV[DB_DATABASE] is %s", DB_DATABASE)
 	if DB_DATABASE == "" {
 		fmt.Println("ENV[MYSQL_DATABASE] is null")
 		os.Exit(1)
 	}
 	DB_USER = os.Getenv("MYSQL_USER")
+	fmt.Printf("ENV[DB_USER] is %s", DB_USER)
 	if DB_USER == "" {
 		fmt.Println("ENV[MYSQL_USER] is null")
 		os.Exit(1)
 	}
 	DB_PASSWD = os.Getenv("MYSQL_ENV_MYSQL_ROOT_PASSWORD")
+	fmt.Printf("ENV[DB_PASSWDR] is %s", DB_PASSWD)
 	if DB_PASSWD == "" {
 		fmt.Println("ENV[MYSQL_PASSWD] is null")
 		os.Exit(1)

@@ -1,13 +1,13 @@
 FROM golang:1.5.1
 
-COPY . /go/src/github.com/asiainfoLDP/broker_mysql
+COPY . /go/src/github.com/asiainfoLDP/datafactory-servicebroker-mysql
 
-WORKDIR /go/src/github.com/asiainfoLDP/broker_mysql
+WORKDIR /go/src/github.com/asiainfoLDP/datafactory-servicebroker-mysql
 
-RUN go get github.com/tools/godep \
-    && $GOPATH/bin/godep restore \
-    && go build
+RUN go get github.com/tools/godep
+
+RUN godep go build
     
 EXPOSE 8001
 
-CMD ["sh", "-c", "./broker_mysql"]
+CMD ["sh", "-c", "./datafactory-servicebroker-mysql"]

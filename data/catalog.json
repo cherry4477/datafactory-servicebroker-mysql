@@ -7,16 +7,13 @@
       "requires": [],
       "tags": [],
       "bindable": true,
-      "metadata": {
-        "provider": {
-          "name": "asiainfo"
-        },
-        "listing": {
-          "imageUrl": "http://catgifpage.com/cat.gif",
-          "blurb": "fake broker that is fake",
-          "longDescription": "Provides the mysq VM service, including VM creation, key pair injection"
-        },
-        "displayName": "MySQL Service"
+      "metadata":{
+        "displayName":"亚信 MySQL",
+        "imageUrl":"https://d33na3ni6eqf5j.cloudfront.net/app_resources/18492/thumbs_112/img9069612145282015279.png",
+        "longDescription":"Managed, highly available, RabbitMQ clusters in the cloud",
+        "providerDisplayName":"84codes AB",
+        "documentationUrl":"http://docs.cloudfoundry.com/docs/dotcom/marketplace/services/cloudamqp.html",
+        "supportUrl":"http://www.cloudamqp.com/support.html"
       },
       "dashboard_client": {
         "id": "<sso-test>",

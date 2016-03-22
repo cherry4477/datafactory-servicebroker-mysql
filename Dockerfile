@@ -4,10 +4,8 @@ COPY . /go/src/github.com/asiainfoLDP/datafactory-servicebroker-mysql
 
 WORKDIR /go/src/github.com/asiainfoLDP/datafactory-servicebroker-mysql
 
-RUN go get github.com/tools/godep
+RUN GO15VENDOREXPERIMENT=1 go build
 
-RUN godep go build
-    
 EXPOSE 8001
 
 CMD ["sh", "-c", "./datafactory-servicebroker-mysql"]

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export MYSQL_ADDR=54.222.153.228
+export MYSQL_ADDR=127.0.0.1
 export MYSQL_PORT=3306
 export MYSQL_DATABASE=mysql
 export MYSQL_USER=root
